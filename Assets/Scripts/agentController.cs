@@ -10,6 +10,7 @@ public class agentController : Agent
 {
     private float moveSpeed = 7f;
     private float distanceThreshold = 0.5f;
+    private float velThreshold = 0.5f;
     [SerializeField] private Transform targetTransform;
     private Rigidbody rb;
     private float distanceToTarget;
@@ -60,6 +61,7 @@ public class agentController : Agent
         sideChannel = new CustomSideChannel();
         SideChannelManager.RegisterSideChannel(sideChannel);
         sideChannel.MessageToPass += OnMessageReceived;
+
     }
 
     public void OnMessageReceived(object sender, MessageEventArgs msg)
@@ -81,7 +83,14 @@ public class agentController : Agent
 
     public override void OnEpisodeBegin()
     {
-        rb.velocity = new Vector3(0, 0, 0);
+        // Get a random initial velocity
+        float vel_r = velThreshold * Random.Range(0f, 1f);
+        float vel_theta = 2f * Mathf.PI * Random.Range(0f, 1f);
+        float vel_x = vel_r * Mathf.Cos(vel_theta);
+        float vel_z = vel_r * Mathf.Sin(vel_theta);
+
+        // rb.velocity = new Vector3(0, 0, 0);
+        rb.velocity = new Vector3(vel_x, 0, vel_z);
 
         // Get a random initial position centered around the initial location
         float pos_r = distanceThreshold * Random.Range(0f, 1f);
@@ -114,14 +123,17 @@ public class agentController : Agent
         distanceToSubTaskTarget = 
             Vector3.Distance(this.transform.position, subTaskTargetLocation);
 
-        if(distanceToSubTaskTarget <= distanceThreshold)
+        // Compute current speed.
+        float vel = Mathf.Sqrt((rb.velocity.x * rb.velocity.x) + (rb.velocity.y * rb.velocity.y));
+
+        if((distanceToSubTaskTarget <= distanceThreshold) && (vel <= velThreshold)) 
         {
             sideChannel.SendStringToPython("Completed sub task: " + currentSubTask.ToString());
         }
 
-        if(distanceToTarget <= distanceThreshold)
+        if((distanceToTarget <= distanceThreshold) && (vel <= velThreshold))
         {
-            SetReward(1f);
+            SetReward(100f);
             sideChannel.SendStringToPython("Completed task");
             EndEpisode();
         }
