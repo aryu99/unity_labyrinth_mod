@@ -49,11 +49,11 @@ public class agentController : Agent
         taskDescriptions.Add(10, (new Vector3(-2.8f, 0.5f, -13.25f), new Vector3(-6.2f, 0.5f, -17.75f)));
         taskDescriptions.Add(11, (new Vector3(-6.2f, 0.5f, -17.75f), new Vector3(-2.8f, 0.5f, -22f)));
         taskDescriptions.Add(12, (new Vector3(-6.2f, 0.5f, -17.75f), new Vector3(-7.6f, 0.5f, -24.8f)));
-        taskDescriptions.Add(13, (new Vector3(-7.6f, 0.5f, -24.8f), new Vector3(8.5f, 0.5f, -28.5f)));
+        taskDescriptions.Add(13, (new Vector3(-7.6f, 0.5f, -24.8f), new Vector3(-8.5f, 0.5f, -28.5f)));
         taskDescriptions.Add(14, (new Vector3(-2.8f, 0.5f, -22f), new Vector3(1.9f, 0.5f, -24.7f)));
-        taskDescriptions.Add(15, (new Vector3(1.9f, 0.5f, -24.7f), new Vector3(8.5f, 0.5f, -28.5f)));
-        taskDescriptions.Add(16, (new Vector3(14.6f, 0.5f, -24.7f), new Vector3(8.5f, 0.5f, -28.5f)));
-        taskDescriptions.Add(17, (new Vector3(16.1f, 0.5f, -28.7f), new Vector3(8.5f, 0.5f, -28.5f)));
+        taskDescriptions.Add(15, (new Vector3(1.9f, 0.5f, -24.7f), new Vector3(-8.5f, 0.5f, -28.5f)));
+        taskDescriptions.Add(16, (new Vector3(14.6f, 0.5f, -24.7f), new Vector3(-8.5f, 0.5f, -28.5f)));
+        taskDescriptions.Add(17, (new Vector3(16.1f, 0.5f, -28.7f), new Vector3(-8.5f, 0.5f, -28.5f)));
         taskDescriptions.Add(18, (new Vector3(0.45f, 0.5f, 1.8f), new Vector3(2.45f, 0.5f, -8f)));
         taskDescriptions.Add(19, (new Vector3(2.45f, 0.5f, -8f), new Vector3(-2.8f, 0.5f, -13.25f)));
         taskDescriptions.Add(20, (new Vector3(2.45f, 0.5f, -8f), new Vector3(4.0f, 0.5f, -15.3f)));
