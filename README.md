@@ -8,4 +8,4 @@ Unity ML-Agents project that acts as a labyrinth environment for reinforcement l
 
 ## Current setup
 
-![image](https://drive.google.com/uc?export=view&id=1RcUhB-Yp_HJGqdfmpGco2YAB2f96wmbA)
+![map](map.png)
